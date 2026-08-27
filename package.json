@@ -1,0 +1,13 @@
+{
+  "name": "portofino-grazi",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "preview": "pnpm --filter web preview",
+    "deploy": "pnpm build && pnpm --filter infra deploy",
+    "infra:synth": "pnpm --filter infra synth",
+    "infra:deploy": "pnpm --filter infra deploy",
+    "infra:diff": "pnpm --filter infra diff"
+  }
+}

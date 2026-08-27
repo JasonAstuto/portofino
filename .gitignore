@@ -1,0 +1,13 @@
+node_modules/
+dist/
+cdk.out/
+*.js.map
+.env
+.env.local
+*.d.ts
+*.js
+!vite.config.js
+.DS_Store
+Thumbs.db
+.playwright-mcp/
+*.png
