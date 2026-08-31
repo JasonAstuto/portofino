@@ -7,8 +7,8 @@ const app = new cdk.App();
 
 new PortfolioStack(app, "PortfolioStack", {
   env: {
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: "us-east-1",
+    account: process.env.CDK_DEFAULT_ACCOUNT ?? "278657421645",
+    region: process.env.AWS_REGION ?? "us-east-1",
   },
   tags: {
     Project: "portfolio",
