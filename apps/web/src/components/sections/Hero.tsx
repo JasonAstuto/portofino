@@ -59,8 +59,7 @@ export function Hero() {
               animate="show"
               className="text-lg text-slate-600 leading-relaxed max-w-xl"
             >
-              I help healthcare and technology companies build the cloud foundations,
-              AI platforms, and engineering systems that scale — from architecture through production.
+              Bringing deep experience in software, engineering leadership, and modernization to help organizations get more from their technology. The focus is on practical AI workflows, data, and modern engineering tools that remove friction, improve efficiency, and create measurable value.
             </motion.p>
 
             <motion.div
@@ -82,6 +81,15 @@ export function Hero() {
                 onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
               >
                 See what I do
+              </Button>
+              <Button
+                size="lg"
+                variant="ghost"
+                onClick={() => {
+                  window.location.hash = "#resume";
+                }}
+              >
+                View resume
               </Button>
             </motion.div>
           </div>

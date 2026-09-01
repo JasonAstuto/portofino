@@ -19,30 +19,31 @@ export function About() {
             <div className="space-y-2">
               <p className="text-sm font-medium text-indigo-600 tracking-wide uppercase">About</p>
               <h2 className="text-3xl lg:text-4xl font-semibold text-slate-900 tracking-tight">
-                Engineering leader who ships.
+                Strategy and execution for modern delivery.
               </h2>
             </div>
 
             <div className="space-y-4 text-slate-600 leading-relaxed">
               <p>
-                I'm a software architect and platform engineering leader with 20+ years of experience
-                building systems that handle the real complexity of regulated industries — healthcare,
-                financial services, and enterprise cloud at scale.
+                I am a consulting architect and delivery partner for companies navigating digital
+                transformation, AI adoption, and the operational realities of modern software delivery.
+                My work helps leadership teams cut through complexity and turn technical change into
+                measurable business outcomes.
               </p>
               <p>
-                From hyperscaler work at Microsoft and market-data systems at FTSE Russell / London Stock
-                Exchange Group, to leading cloud and AI platform architecture at healthcare SaaS companies —
-                I've been the person who makes sense of hard technical problems and turns them into
-                production-grade platforms teams can rely on.
+                Over the last 20+ years, I’ve worked across healthcare, financial services, enterprise SaaS,
+                and global technology programs — from cloud architecture and platform transformation to team
+                design, developer workflow optimization, and AI-enabled operating models.
               </p>
               <p>
-                I work with companies on a project basis: a focused architecture engagement, a platform build,
-                a technical advisory relationship, or embedding with your team for a sprint or two.
+                I help organisations decide what to build, how to structure the work, and how to align
+                engineering, leadership, and platform decisions so transformation is sustainable instead of
+                expensive drift.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              {["Healthcare SaaS", "HIPAA / SOC 2", "AWS", "Azure", "AI/LLM", "Platform Engineering", "Team Leadership"].map(
+              {["Digital transformation", "AI adoption", "Dev workflow optimization", "Cloud strategy", "Platform design", "Executive advisory"].map(
                 (tag) => (
                   <span
                     key={tag}

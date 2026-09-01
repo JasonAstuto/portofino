@@ -6,35 +6,35 @@ import { Cloud, Brain, Layers, Users } from "lucide-react";
 const services = [
   {
     icon: Cloud,
-    title: "Cloud Architecture",
-    tagline: "AWS-native foundations built to last.",
+    title: "Digital Transformation Strategy",
+    tagline: "Modernization that moves business, not just systems.",
     description:
-      "Infrastructure design, security posture, IaC with CDK/Terraform, multi-tenant architecture, and cloud-native patterns for production-grade environments.",
-    tags: ["AWS", "CDK", "Terraform", "Multi-tenant", "Security"],
+      "I help leadership teams map the right transformation path, prioritise the highest-value work, and design technology programs that can actually land without accumulating delivery debt.",
+    tags: ["Transformation", "Roadmaps", "Portfolio planning", "Operating models"],
   },
   {
     icon: Brain,
-    title: "AI / LLM Platform",
-    tagline: "AI that runs in regulated production.",
+    title: "AI Adoption & Governance",
+    tagline: "Practical AI that reduces cost and increases leverage.",
     description:
-      "Model integration, evaluation infrastructure, prompt management, agent frameworks, inference observability, and feature pipelines for real-world AI products.",
-    tags: ["LLM", "Agent frameworks", "Inference", "Evaluation", "MLOps"],
+      "From use-case prioritization to governance and production readiness, I help companies apply AI in a way that creates measurable value without creating operational risk or ungoverned sprawl.",
+    tags: ["AI strategy", "LLM rollout", "Governance", "Use-case prioritization"],
   },
   {
     icon: Layers,
-    title: "Platform Engineering",
-    tagline: "Developer platforms teams want to use.",
+    title: "Developer Workflow Optimization",
+    tagline: "A software engine that runs with less friction.",
     description:
-      "CI/CD pipeline engineering, developer tooling, SRE practices, observability stacks, incident response, and self-service platform capabilities.",
-    tags: ["CI/CD", "GitHub Actions", "SRE", "Observability", "DevEx"],
+      "I redesign delivery workflows, reduce bottlenecks, improve tooling and automation, and increase engineering throughput so teams spend less time fighting process and more time creating value.",
+    tags: ["DevEx", "CI/CD", "Automation", "Delivery flow"],
   },
   {
     icon: Users,
-    title: "Technical Leadership",
-    tagline: "Strategy, standards, and execution.",
+    title: "Platform & Technical Advisory",
+    tagline: "Architecture guidance for critical decisions.",
     description:
-      "Architecture governance, engineering standards, team mentorship, technical due diligence, and stakeholder-facing technical strategy and roadmapping.",
-    tags: ["Architecture review", "Due diligence", "Roadmapping", "Mentorship"],
+      "I work with executives, product leaders, and engineering teams to reduce ambiguity, clarify architecture choices, and build the technical operating model needed for scale.",
+    tags: ["Architecture review", "Leadership advisory", "Team design", "Execution"],
   },
 ];
 
