@@ -93,15 +93,28 @@ export function Hero() {
             className="hidden lg:block"
           >
             <div className="relative">
-              <div className="w-full aspect-square max-w-md mx-auto rounded-2xl bg-slate-100 flex items-center justify-center overflow-hidden border border-slate-200">
-                <div className="text-center space-y-3 p-8">
-                  <div className="w-24 h-24 rounded-full bg-slate-300 mx-auto" />
-                  <div className="h-4 bg-slate-200 rounded w-32 mx-auto" />
-                  <div className="h-3 bg-slate-200 rounded w-24 mx-auto" />
+              <div className="w-full aspect-square max-w-md mx-auto rounded-2xl bg-slate-100 overflow-hidden border border-slate-200">
+                <img
+                  src="/images/jason-headshot.png"
+                  alt="Jason Astuto headshot"
+                  className="w-full h-full object-cover"
+                  onError={(event) => {
+                    const img = event.currentTarget;
+                    img.style.display = 'none';
+                    const fallback = img.nextElementSibling as HTMLElement | null;
+                    if (fallback) fallback.style.display = 'flex';
+                  }}
+                />
+                <div
+                  data-fallback
+                  className="hidden w-full h-full items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 text-slate-700 text-4xl font-semibold"
+                  aria-hidden="true"
+                >
+                  JA
                 </div>
               </div>
               <div className="absolute -bottom-4 -right-4 bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-                <p className="text-xs text-slate-500 font-medium">Currently working with</p>
+                <p className="text-xs text-slate-500 font-medium">Previously worked with</p>
                 <p className="text-sm text-slate-900 font-semibold mt-0.5">Sliced Health</p>
               </div>
             </div>
@@ -115,8 +128,8 @@ export function Hero() {
           className="border-t border-slate-100 py-8 grid grid-cols-2 sm:grid-cols-4 gap-8"
         >
           {[
-            { value: "20+", label: "Years in software" },
-            { value: "5+", label: "Years in cloud architecture" },
+            { value: "20+", label: "Years in software dev" },
+            { value: "10+", label: "Years in cloud architecture" },
             { value: "HIPAA/SOC 2", label: "Regulated environments" },
             { value: "AWS · Azure", label: "Cloud platforms" },
           ].map((stat) => (

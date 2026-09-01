@@ -4,10 +4,12 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const links = [
+  { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
   { label: "Tech", href: "#tech" },
+  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -46,7 +48,7 @@ export function Nav() {
           ))}
           <li>
             <a
-              href="mailto:jason.astuto@gmail.com"
+              href="#contact"
               className="text-sm bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition-colors font-medium"
             >
               Work together
@@ -82,7 +84,8 @@ export function Nav() {
               </a>
             ))}
             <a
-              href="mailto:jason.astuto@gmail.com"
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
               className="text-sm bg-slate-900 text-white px-4 py-2 rounded-lg text-center font-medium"
             >
               Work together

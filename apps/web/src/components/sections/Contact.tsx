@@ -8,6 +8,23 @@ export function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
+  const handleEmailClick = () => {
+    const subject = encodeURIComponent("Project inquiry");
+    const body = encodeURIComponent(
+      [
+        "Hi Jason,",
+        "",
+        "I'd like to discuss a project or engagement.",
+        "",
+        "Name:",
+        "Company:",
+        "Project overview:",
+      ].join("\n")
+    );
+
+    window.location.href = `mailto:willow-june@proton.me?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section id="contact" className="py-24 bg-white" ref={ref}>
       <div className="max-w-6xl mx-auto px-6">
@@ -30,10 +47,7 @@ export function Contact() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                size="lg"
-                onClick={() => window.open("mailto:jason.astuto@gmail.com", "_blank")}
-              >
+              <Button size="lg" onClick={handleEmailClick}>
                 <Mail size={16} className="mr-2" />
                 Send an email
                 <ArrowRight size={14} className="ml-2" />

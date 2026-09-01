@@ -42,7 +42,7 @@ export function About() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              {["Healthcare SaaS", "HIPAA / SOC 2", "AWS", "AI/LLM", "Platform Engineering", "Team Leadership"].map(
+              {["Healthcare SaaS", "HIPAA / SOC 2", "AWS", "Azure", "AI/LLM", "Platform Engineering", "Team Leadership"].map(
                 (tag) => (
                   <span
                     key={tag}

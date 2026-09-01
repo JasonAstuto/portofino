@@ -6,7 +6,7 @@ const experiences = [
   {
     company: "Sliced Health",
     role: "Platform & Cloud Architecture Lead",
-    period: "Oct 2024 – Present",
+    period: "Oct 2024 – Sep 2026",
     description:
       "Own cloud and AI platform architecture for a HIPAA-regulated healthcare SaaS product. AWS infrastructure design with CDK, AI/LLM platform, SRE practices, and backend platform services in C# and Python.",
     tags: ["AWS", "CDK", "AI/LLM", "HIPAA", "C#", "Python"],

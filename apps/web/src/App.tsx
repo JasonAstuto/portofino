@@ -6,6 +6,7 @@ import { Services } from "@/components/sections/Services";
 import { Experience } from "@/components/sections/Experience";
 import { TechStack } from "@/components/sections/TechStack";
 import { Highlights } from "@/components/sections/Highlights";
+import { Blog } from "@/components/sections/Blog";
 import { Contact } from "@/components/sections/Contact";
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
         <Experience />
         <TechStack />
         <Highlights />
+        <Blog />
         <Contact />
       </main>
       <Footer />
