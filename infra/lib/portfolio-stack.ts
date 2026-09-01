@@ -40,14 +40,10 @@ export class PortfolioStack extends cdk.Stack {
         })
       : undefined;
 
-    // S3 bucket — private, CloudFront accesses via OAC
-    const siteBucket = new s3.Bucket(this, "SiteBucket", {
-      bucketName: `jason-astuto-portfolio-${this.account}`,
-      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-      encryption: s3.BucketEncryption.S3_MANAGED,
-      versioned: true,
-      removalPolicy: cdk.RemovalPolicy.RETAIN,
-    });
+    const siteBucketName = `jason-astuto-portfolio-${this.account}`;
+
+    // Reuse the existing production bucket instead of trying to create a duplicate bucket.
+    const siteBucket = s3.Bucket.fromBucketName(this, "SiteBucket", siteBucketName);
 
     // CloudFront Function: rewrite all non-asset requests to index.html (SPA routing)
     const spaRoutingFunction = new cloudfront.Function(this, "SpaRoutingFunction", {
