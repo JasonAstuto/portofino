@@ -59,9 +59,7 @@ export function Hero() {
               animate="show"
               className="text-lg text-slate-600 leading-relaxed max-w-xl"
             >
-              I help companies turn digital transformation into operating leverage — aligning cloud,
-              AI adoption, engineering workflow design, and platform strategy so delivery becomes faster,
-              more predictable, and more valuable.
+              Bringing deep experience in software, engineering leadership, and modernization to help organizations get more from their technology. The focus is on practical AI workflows, data, and modern engineering tools that remove friction, improve efficiency, and create measurable value.
             </motion.p>
 
             <motion.div
