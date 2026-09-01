@@ -1,10 +1,7 @@
 import * as cdk from "aws-cdk-lib";
-import * as apigateway from "aws-cdk-lib/aws-apigateway";
 import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
 import * as origins from "aws-cdk-lib/aws-cloudfront-origins";
 import * as acm from "aws-cdk-lib/aws-certificatemanager";
-import * as iam from "aws-cdk-lib/aws-iam";
-import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as route53 from "aws-cdk-lib/aws-route53";
 import * as targets from "aws-cdk-lib/aws-route53-targets";
 import * as s3 from "aws-cdk-lib/aws-s3";
@@ -139,152 +136,6 @@ function handler(event) {
       }
     }
 
-    const contactDestination = contactToEmail;
-    const contactSender = contactFromEmail;
-
-    const contactHandler = new lambda.Function(this, "ContactHandler", {
-      runtime: lambda.Runtime.NODEJS_20_X,
-      handler: "index.handler",
-      code: lambda.Code.fromInline(`
-const AWS = require("aws-sdk");
-const ses = new AWS.SES({ region: process.env.AWS_REGION || "us-east-1" });
-
-const destinationAddress = process.env.EMAIL_TO || "willow-june@proton.me";
-const senderAddress = process.env.EMAIL_FROM || process.env.EMAIL_TO || "willow-june@proton.me";
-
-function sanitizeField(value, maxLength) {
-  return String(value ?? "")
-    .replace(/[\u0000-\u001F\u007F]/g, "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, maxLength);
-}
-
-function isValidEmail(value) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-
-function buildResponse(statusCode, body, extraHeaders = {}) {
-  return {
-    statusCode,
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type,Authorization",
-      "Access-Control-Allow-Methods": "POST,OPTIONS",
-      ...extraHeaders,
-    },
-    body: JSON.stringify(body),
-  };
-}
-
-exports.handler = async (event) => {
-  if (event.httpMethod === "OPTIONS") {
-    return buildResponse(200, { ok: true });
-  }
-
-  let payload = {};
-  try {
-    payload = JSON.parse(event.body || "{}");
-  } catch (error) {
-    return buildResponse(400, { error: "Invalid JSON payload." });
-  }
-
-  const name = sanitizeField(payload.name, 80);
-  const email = sanitizeField(payload.email, 254).toLowerCase();
-  const company = sanitizeField(payload.company, 120);
-  const project = sanitizeField(payload.project, 200);
-  const message = sanitizeField(payload.message, 2500);
-  const suspiciousPattern = /(?:<\s*script|javascript:|onerror=|\b(?:from|to|cc|bcc):)/i;
-
-  if (!name || !email || !message) {
-    return buildResponse(422, { error: "Name, email, and message are required." });
-  }
-
-  if (!isValidEmail(email)) {
-    return buildResponse(422, { error: "Please provide a valid email address." });
-  }
-
-  if ([name, email, company, project, message].some((value) => suspiciousPattern.test(value))) {
-    return buildResponse(400, { error: "Input contains invalid or unsafe content." });
-  }
-
-  const subject = company ? "Portfolio inquiry from " + name + " (" + company + ")" : "Portfolio inquiry from " + name;
-  const projectLine = project ? "\nProject type: " + project : "";
-  const companyLine = company ? "\nCompany: " + company : "";
-
-  const emailParams = {
-    Source: senderAddress,
-    Destination: {
-      ToAddresses: [destinationAddress],
-    },
-    ReplyToAddresses: [email],
-    Message: {
-      Subject: {
-        Data: subject,
-        Charset: "UTF-8",
-      },
-      Body: {
-        Text: {
-          Data: [
-            "New portfolio inquiry",
-            "Name: " + name,
-            "Email: " + email,
-            companyLine,
-            projectLine,
-            "",
-            "Message:",
-            message,
-          ].join("\n"),
-          Charset: "UTF-8",
-        },
-      },
-    },
-  };
-
-  try {
-    await ses.sendEmail(emailParams).promise();
-    return buildResponse(200, { success: true });
-  } catch (error) {
-    console.error("SES send failed", error);
-    return buildResponse(500, { error: "Unable to send your message right now." });
-  }
-};
-      `),
-      environment: {
-        EMAIL_TO: contactDestination,
-        EMAIL_FROM: contactSender,
-      },
-      timeout: cdk.Duration.seconds(30),
-    });
-
-    contactHandler.addToRolePolicy(
-      new iam.PolicyStatement({
-        actions: ["ses:SendEmail", "ses:SendRawEmail"],
-        resources: ["*"],
-      }),
-    );
-
-    const contactApi = new apigateway.RestApi(this, "ContactApi", {
-      restApiName: "PortfolioContactApi",
-      description: "API for sending portfolio inquiries",
-      defaultCorsPreflightOptions: {
-        allowOrigins: apigateway.Cors.ALL_ORIGINS,
-        allowMethods: apigateway.Cors.ALL_METHODS,
-        allowHeaders: ["Content-Type", "Authorization"],
-      },
-    });
-
-    const contactResource = contactApi.root.addResource("contact");
-    contactResource.addMethod("POST", new apigateway.LambdaIntegration(contactHandler));
-    contactResource.addMethod("OPTIONS", new apigateway.MockIntegration({
-      integrationResponses: [{ statusCode: "200", responseParameters: { "method.response.header.Access-Control-Allow-Origin": "'*'" } }],
-      passthroughBehavior: apigateway.PassthroughBehavior.NEVER,
-      requestTemplates: { "application/json": '{"statusCode": 200}' },
-    }), {
-      methodResponses: [{ statusCode: "200", responseParameters: { "method.response.header.Access-Control-Allow-Origin": true } }],
-    });
-
     // Deploy built assets
     new s3deploy.BucketDeployment(this, "DeployAssets", {
       sources: [s3deploy.Source.asset(path.join(__dirname, "../../apps/web/dist"))],
@@ -309,9 +160,5 @@ exports.handler = async (event) => {
       description: "S3 bucket name",
     });
 
-    new cdk.CfnOutput(this, "ContactApiEndpoint", {
-      value: `${contactApi.url}contact`,
-      description: "Portfolio contact API endpoint",
-    });
   }
 }
