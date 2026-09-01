@@ -5,39 +5,39 @@ import { ArrowUpRight } from "lucide-react";
 
 const highlights = [
   {
-    area: "AI Platform",
-    title: "Built AI/LLM infrastructure for a healthcare revenue-cycle product",
+    area: "AI Adoption",
+    title: "AI adoption that actually changes operating leverage",
     description:
-      "Designed and operated the full AI platform stack: model integration, prompt management, evaluation pipelines, and inference observability in a HIPAA-regulated AWS environment.",
-    outcome: "Production AI workloads across a regulated SaaS product",
+      "I help companies focus on the AI opportunities that deliver real efficiency gains — reducing repetitive work, accelerating delivery, and improving decision quality without creating governance chaos.",
+    outcome: "Measurable productivity gains without uncontrolled AI sprawl",
   },
   {
-    area: "Cloud Architecture",
-    title: "Modernized multi-tenant SaaS platform on AWS",
+    area: "Digital Transformation",
+    title: "Complex modernization programs with clearer decision paths",
     description:
-      "Rearchitected PHI isolation, security segmentation, and cloud-native deployment patterns for a health plan SaaS product serving multiple enterprise customers.",
-    outcome: "Improved security posture + reduced deployment complexity",
+      "I structure transformation work so leadership teams can see tradeoffs, dependencies, and risk early — creating a more disciplined path from legacy complexity to business-ready platforms.",
+    outcome: "Better execution confidence for difficult modernization efforts",
   },
   {
-    area: "Data Platform",
-    title: "Authoritative analytics data models at GitLab",
+    area: "Developer Workflow Optimization",
+    title: "Delivery workflows that remove drag instead of adding process",
     description:
-      "Designed reusable Snowflake and dbt data models forming a single source of truth across engineering and go-to-market teams — replacing a fragmented reporting landscape.",
-    outcome: "Cross-org analytics foundation adopted by GTM and Engineering",
+      "I improve CI/CD, platform automation, team boundaries, and operating rhythms so engineering organizations can deliver with fewer meeting-heavy bottlenecks and less rework.",
+    outcome: "Higher engineering throughput with lower operational friction",
   },
   {
-    area: "Hyperscale Engineering",
-    title: "Azure cloud and security platform at Microsoft",
+    area: "Platform Design",
+    title: "Architecture decisions made for scale and accountability",
     description:
-      "Contributed to engineering initiatives across Azure cloud computing, security platforms, and Microsoft Research — operating in globally distributed, high-reliability infrastructure.",
-    outcome: "Hyperscaler-scale distributed systems experience",
+      "I design the technical foundations needed for secure, maintainable, and high-velocity product delivery — from cloud architecture to operating model design and governance.",
+    outcome: "A platform that teams can trust and scale",
   },
   {
-    area: "Financial Systems",
-    title: "Mission-critical market-data systems at LSEG",
+    area: "Leadership Advisory",
+    title: "Executive clarity during product and platform change",
     description:
-      "Designed enterprise software supporting global financial-services environments with strict availability, auditability, and regulatory requirements.",
-    outcome: "High-availability systems serving global financial markets",
+      "I help leadership teams assess whether they need advisory support, architecture depth, or embedded delivery leadership — ensuring the right level of support at the right moment.",
+    outcome: "Sharper strategy and faster execution under pressure",
   },
 ];
 

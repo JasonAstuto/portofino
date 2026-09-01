@@ -6,42 +6,42 @@ const experiences = [
   {
     company: "Sliced Health",
     role: "Platform & Cloud Architecture Lead",
-    period: "Oct 2024 – Sep 2026",
+    period: "2024 – 2026",
     description:
-      "Own cloud and AI platform architecture for a HIPAA-regulated healthcare SaaS product. AWS infrastructure design with CDK, AI/LLM platform, SRE practices, and backend platform services in C# and Python.",
-    tags: ["AWS", "CDK", "AI/LLM", "HIPAA", "C#", "Python"],
+      "Drove cloud and AI platform modernization in a HIPAA-regulated environment, creating a delivery model that reduced friction across architecture, engineering, and operational processes.",
+    tags: ["AWS", "CDK", "AI/LLM", "HIPAA", "Platform strategy"],
   },
   {
     company: "Annexus Health",
     role: "Software Architect",
-    period: "Sep 2022 – Oct 2024",
+    period: "2022 – 2024",
     description:
-      "Modernized a multi-tenant healthcare SaaS platform: PHI isolation, security segmentation, OpenAPI-first integration architecture, and enterprise-wide cloud-native standards.",
-    tags: ["Multi-tenant SaaS", "AWS", "OpenAPI", "HIPAA", "CI/CD"],
+      "Led enterprise modernization work for healthcare systems, including PHI-aware architecture, security segmentation, and platform standardization that improved team velocity and governance.",
+    tags: ["Healthcare SaaS", "AWS", "Governance", "Platform standards"],
   },
   {
     company: "Amplify Consulting Partners",
     role: "Engineering & Technology Consulting Lead",
-    period: "Mar 2021 – Sep 2022",
+    period: "2021 – 2022",
     description:
-      "Architecture and cloud consulting for enterprise clients across healthcare, tech, and financial services. Notable GitLab contract: authoritative data models in Snowflake and dbt.",
-    tags: ["Consulting", "Snowflake", "dbt", "Cloud Architecture"],
+      "Advised clients on architecture and transformation programs across healthcare and enterprise technology, helping leadership teams balance delivery speed with risk and platform quality.",
+    tags: ["Consulting", "Transformation", "Cloud Architecture", "Advisory"],
   },
   {
     company: "Microsoft",
     role: "Software Engineering / Cloud / Research",
-    period: "Dec 2016 – Feb 2021",
+    period: "2016 – 2021",
     description:
-      "Azure cloud engineering across security architecture, distributed systems, and platform engineering at hyperscaler scale. Contributed to Azure cloud computing, security platforms, and Microsoft Research programs.",
-    tags: ["Azure", "Distributed systems", "Security", "Cloud at scale"],
+      "Worked on large-scale cloud infrastructure and platform engineering initiatives, with strong emphasis on distributed systems, security posture, and production reliability.",
+    tags: ["Azure", "Distributed systems", "Security", "Platform engineering"],
   },
   {
     company: "FTSE Russell / London Stock Exchange Group",
     role: "Software Engineering / Technology",
-    period: "Jun 2012 – Dec 2016",
+    period: "2012 – 2016",
     description:
-      "Enterprise software for global financial-services market-data environments. Large-scale data pipelines, integration APIs, and mission-critical systems with strict availability and regulatory requirements.",
-    tags: ["Financial services", "Market data", "Data pipelines", "Enterprise"],
+      "Built and supported mission-critical enterprise systems for global financial-services environments, including market data and regulated technology delivery workflows.",
+    tags: ["Financial services", "Data platforms", "Enterprise systems"],
   },
 ];
 
